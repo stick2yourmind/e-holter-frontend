@@ -8,9 +8,9 @@ export interface ButtonProps
   children: ReactNode;
 }
 
-function Button({ children, className, variant, size, ...props }: ButtonProps) {
+function Button({ children, className, variant, variantSize, ...props }: ButtonProps) {
   return (
-    <button {...props} className={cn(buttonVariants({ variant, size, className }))}>
+    <button {...props} className={cn(buttonVariants({ variant, variantSize, className }))}>
       {children}
     </button>
   );
@@ -24,7 +24,7 @@ const buttonVariants = cva('rounded-md', {
       secondary: 'border-2 border-white text-white bg-black hover:bg-neutral-800',
       danger: 'border-none text-white bg-red-500 hover:bg-red-600',
     },
-    size: {
+    variantSize: {
       sm: 'text-sm px-1 py-0',
       md: 'text-base px-2 py-0',
       lg: 'text-xl px-4 py-2',
@@ -32,6 +32,6 @@ const buttonVariants = cva('rounded-md', {
   },
   defaultVariants: {
     variant: 'primary',
-    size: 'md',
+    variantSize: 'md',
   },
 });
