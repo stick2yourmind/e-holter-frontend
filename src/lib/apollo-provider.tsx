@@ -1,24 +1,25 @@
-"use client";
+'use client';
 
-import { ApolloLink, HttpLink } from "@apollo/client";
+import { ApolloLink, HttpLink } from '@apollo/client';
 import {
   NextSSRApolloClient,
   NextSSRInMemoryCache,
   SSRMultipartLink,
-  ApolloNextAppProvider
-} from "@apollo/experimental-nextjs-app-support/ssr";
+  ApolloNextAppProvider,
+} from '@apollo/experimental-nextjs-app-support/ssr';
 
 function makeClient() {
-  const uri = process.env.NEXT_PUBLIC_GRAPHQL_URI
-  
+  const uri = process.env.NEXT_PUBLIC_GRAPHQL_URI;
+
   const httpLink = new HttpLink({
-      uri,
+    uri,
+    credentials: 'include',
   });
 
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),
     link:
-      typeof window === "undefined"
+      typeof window === 'undefined'
         ? ApolloLink.from([
             new SSRMultipartLink({
               stripDefer: true,
@@ -29,11 +30,6 @@ function makeClient() {
   });
 }
 
-
 export function ApolloWrapper({ children }: React.PropsWithChildren) {
-  return (
-    <ApolloNextAppProvider makeClient={makeClient}>
-      {children}
-    </ApolloNextAppProvider>
-  );
+  return <ApolloNextAppProvider makeClient={makeClient}>{children}</ApolloNextAppProvider>;
 }

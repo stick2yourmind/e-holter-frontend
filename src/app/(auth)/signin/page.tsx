@@ -2,10 +2,10 @@
 
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import { SIGN_IN_MUTATION } from '@/graphql/mutation/signInMutation';
 import { loginSchema } from '@/schema/loginSchema';
-import { ApolloError, gql, useMutation } from '@apollo/client';
+import { ApolloError, useMutation } from '@apollo/client';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -14,21 +14,13 @@ interface LoginValues {
   password: string;
 }
 
-const LOGIN_MUTATION = gql`
-  mutation Login($loginInput: LoginInput!) {
-    login(loginInput: $loginInput) {
-      token
-    }
-  }
-`;
-
 export default function Home() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginValues>({ resolver: zodResolver(loginSchema) });
-  const [login] = useMutation(LOGIN_MUTATION);
+  const [login] = useMutation(SIGN_IN_MUTATION);
 
   const onSignIn = async ({ email, password }: LoginValues) => {
     try {
