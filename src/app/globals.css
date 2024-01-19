@@ -30,3 +30,15 @@ h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
+
+*::-moz-selection { /* Code for Firefox */
+  color: #182138;
+  background: #14b8a6;
+  text-decoration: underline solid #182138;
+}
+
+*::selection {
+  color:  #182138;
+  background: #14b8a6;
+  text-decoration: underline solid #182138;
+}
