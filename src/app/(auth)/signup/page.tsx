@@ -6,6 +6,7 @@ import { SIGN_UP_MUTATION } from '@/graphql/mutation/signUpMutation';
 import { registerSchema } from '@/schema/registerSchema';
 import { ApolloError, useMutation } from '@apollo/client';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -50,24 +51,64 @@ export default function Home() {
   };
 
   return (
-    <main className="flex items-center justify-center bg-stone-950 text-gray-100 h-screen">
+    <main className="flex items-center justify-center bg-[#64748B] text-gray-100 h-screen">
       <form
-        action=""
-        className="grid w-80 gap-2 border-4 rounded-lg border-gray-100 p-4"
+        className="flex flex-col items-center justify-center max-w-lg gap-2 bg-[#182138] rounded-lg p-8 shadow-md"
         onSubmit={handleSubmit(onSignIn)}
       >
-        <label htmlFor="email">Email</label>
-        <Input type="text" name="email" register={register} errors={errors} />
+        <h1 className="text-xl">Sign Up Now!</h1>
+        <fieldset className="w-full">
+          <label htmlFor="email" className="self-start">
+            Enter your email
+          </label>
+          <Input
+            type="text"
+            name="email"
+            register={register}
+            errors={errors}
+            placeholder="example@mail.com"
+            className="mt-1"
+          />
+        </fieldset>
 
-        <label htmlFor="password">Password</label>
-        <Input type="password" name="password" register={register} errors={errors} />
+        <fieldset className="w-full">
+          <label htmlFor="password" className="self-start">
+            Enter your password
+          </label>
+          <Input
+            type="password"
+            name="password"
+            register={register}
+            errors={errors}
+            placeholder="Choose a password"
+            className="mt-1"
+          />
+        </fieldset>
 
-        <label htmlFor="password">Confirm password</label>
-        <Input type="password" name="confirmPassword" register={register} errors={errors} />
+        <fieldset className="w-full">
+          <label htmlFor="confirmPassword" className="self-start">
+            Confirm your password
+          </label>
+          <Input
+            type="confirmPassword"
+            name="confirmPassword"
+            register={register}
+            errors={errors}
+            placeholder="Confirm your password"
+            className="mt-1"
+          />
+        </fieldset>
 
-        <Button type="submit" variant="secondary" variantSize="lg">
-          Enviar
+        <Button type="submit" variantSize="lg" className="text-sm font-semibold text-gray-50 mt-2">
+          Sign up
         </Button>
+        <p className="text-xs font-normal">By registering you accept our Terms and Privacy Policy</p>
+        <p className="flex gap-1 text-sm font-normal self-end mt-6">
+          Already have an account?
+          <Link href="signin" className="underline">
+            Sign in
+          </Link>
+        </p>
       </form>
     </main>
   );
