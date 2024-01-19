@@ -92,7 +92,7 @@ export default function Home() {
             Confirm your password
           </label>
           <Input
-            type="confirmPassword"
+            type="password"
             name="confirmPassword"
             register={register}
             errors={errors}
