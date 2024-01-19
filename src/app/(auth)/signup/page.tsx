@@ -43,7 +43,9 @@ export default function Home() {
           return toast.error('The server is not reachable');
         }
 
-        return toast.error('Invalid email or password');
+        if (error.message === 'not unique resource') {
+          return toast.error('Email already registered');
+        }
       }
 
       return toast.error('An error has ocurred');
