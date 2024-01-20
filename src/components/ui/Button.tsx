@@ -20,7 +20,7 @@ export default Button;
 const buttonVariants = cva('rounded-md w-full', {
   variants: {
     variant: {
-      primary: 'border-2 border-solid border-[color:(#475569)] text-white bg-[#070B15] hover:bg-neutral-800',
+      primary: 'border-2 border-solid border-[color:#475569] text-white bg-[#070B15] hover:bg-neutral-800',
       secondary: 'border-2 border-black text-black bg-white hover:bg-neutral-200',
       danger: 'border-none text-white bg-red-500 hover:bg-red-600',
     },

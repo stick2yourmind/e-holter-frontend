@@ -30,7 +30,7 @@ function Input({ children, className, variant, variantSize, register, errors, na
 export default Input;
 
 const inputVariants = cva(
-  'rounded outline outline-1 outline-[color:#475569] bg-[#182138] text-[color:E3E7EE] text-sm font-normal p-3 w-full',
+  'rounded outline outline-1 outline-[color:#475569] bg-[#182138] text-[color:#E3E7EE] text-sm font-normal p-3 w-full',
   {
     variants: {
       variant: {
