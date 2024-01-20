@@ -7,7 +7,7 @@ export default function formatRelativeDate(date: string) {
   const inputDate = dayjs(date);
 
   // Check if the input date is within the last 7 days
-  if (currentDate.diff(inputDate, 'day') <= 7) {
+  if (currentDate.diff(inputDate, 'day') < 7) {
     // Format the date with "ago"
     return inputDate.fromNow();
   } else {
