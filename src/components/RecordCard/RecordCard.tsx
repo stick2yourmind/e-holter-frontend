@@ -19,6 +19,9 @@ export default function RecordCard({ maxPressure, minPressure, pulse, date }: Re
     <article
       className={`${brunoAceSc.className} flex flex-col  text-[color:#14b8a6] bg-[#182138] p-6 rounded-md shadow-sm shadow-slate-800`}
     >
+      <button className="self-end text-[color:#E3E7EE] text-sm rounded outline outline-1 outline-[color:#475569] py-1 px-2">
+        Details &gt;
+      </button>
       <div className="flex gap-2">
         <p className="text-6xl min-w-32 text-right">{maxPressure}</p>
         <div className="flex justify-center items-center">
