@@ -53,9 +53,9 @@ export default function Home() {
   };
 
   return (
-    <main className="flex items-center justify-center bg-[#64748B] text-gray-100 h-screen">
+    <main className="flex h-screen items-center justify-center bg-[#64748B] text-gray-100">
       <form
-        className="flex flex-col items-center justify-center max-w-lg gap-2 bg-[#182138] rounded-lg p-8 shadow-md"
+        className="flex max-w-lg flex-col items-center justify-center gap-2 rounded-lg bg-[#182138] p-8 shadow-md"
         onSubmit={handleSubmit(onSignIn)}
       >
         <h1 className="text-xl">Sign Up Now!</h1>
@@ -101,11 +101,11 @@ export default function Home() {
           />
         </fieldset>
 
-        <Button type="submit" variantSize="lg" className="text-sm font-semibold text-gray-50 mt-2">
+        <Button type="submit" variantSize="lg" className="mt-2 text-sm font-semibold text-gray-50">
           Sign up
         </Button>
         <p className="text-xs font-normal">By registering you accept our Terms and Privacy Policy</p>
-        <p className="flex gap-1 text-sm font-normal self-end mt-6">
+        <p className="mt-6 flex gap-1 self-end text-sm font-normal">
           Already have an account?
           <Link href="signin" className="underline">
             Sign in
