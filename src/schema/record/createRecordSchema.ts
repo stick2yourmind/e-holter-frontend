@@ -8,15 +8,15 @@ export const createRecordSchema = z.object({
     .string({ required_error: 'time is required', invalid_type_error: 'time is required' })
     .refine((value) => /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(value), 'invalid time'),
   heartRate: z.coerce
-    .number()
+    .number({ required_error: 'heart rate is invalid', invalid_type_error: 'heart rate is invalid' })
     .int({ message: 'must be positive a positive integer' })
     .gt(0, { message: 'must be positive a positive integer' }),
   maxPressure: z.coerce
-    .number()
+    .number({ required_error: 'max pressure is invalid', invalid_type_error: 'max pressure is invalid' })
     .int({ message: 'must be positive a positive integer' })
     .gt(0, { message: 'must be positive a positive integer' }),
   minPressure: z.coerce
-    .number()
+    .number({ required_error: 'min pressure is invalid', invalid_type_error: 'min pressure is invalid' })
     .int({ message: 'must be positive a positive integer' })
     .gt(0, { message: 'must be positive a positive integer' }),
   observations: z.string().optional(),
