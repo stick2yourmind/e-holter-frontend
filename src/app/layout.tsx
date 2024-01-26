@@ -4,7 +4,7 @@ import './globals.css';
 import { ApolloWrapper } from '@/lib/apollo-provider';
 import Toast from '@/lib/Toast';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], display: 'swap', adjustFontFallback: false });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
