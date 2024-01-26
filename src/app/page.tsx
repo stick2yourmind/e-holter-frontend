@@ -57,10 +57,10 @@ export default function Home() {
   };
 
   return (
-    <main className="flex items-center justify-center bg-stone-950 text-gray-100 h-screen">
+    <main className="flex h-screen items-center justify-center bg-stone-950 text-gray-100">
       <form
         action=""
-        className="grid w-80 gap-2 border-4 rounded-lg border-gray-100 p-4"
+        className="grid w-80 gap-2 rounded-lg border-4 border-gray-100 p-4"
         onSubmit={handleSubmit(onSignIn)}
       >
         <label htmlFor="email">Email</label>
