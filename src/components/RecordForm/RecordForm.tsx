@@ -1,3 +1,5 @@
+'use client';
+
 import { Controller, useForm } from 'react-hook-form';
 import Datepicker, { DateType } from 'react-tailwindcss-datepicker';
 import TimePicker from 'react-time-picker';
