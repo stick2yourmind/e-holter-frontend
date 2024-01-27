@@ -5,6 +5,8 @@ import { toast } from 'sonner';
 import { DateType } from 'react-tailwindcss-datepicker';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
+import { useState } from 'react';
+import { GET_RECORDS_QUERY } from '@/graphql/query/getRecords';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -18,7 +20,18 @@ interface CreateRecordValues {
 }
 
 const useCreateRecord = () => {
-  const [createRecord] = useMutation<CreateRecordValues>(CREATE_RECORD_MUTATION);
+  const [createRecord] = useMutation<CreateRecordValues>(CREATE_RECORD_MUTATION, {
+    refetchQueries: [GET_RECORDS_QUERY],
+  });
+  const [isCreateRecord, setCreateRecord] = useState(false);
+
+  const initNewRecord = () => {
+    setCreateRecord(true);
+  };
+
+  const resetNewRecord = () => {
+    setCreateRecord(false);
+  };
 
   const onCreateRecord = async (values: CreateRecordValues) => {
     const date = dayjs(values.date).toISOString().split('T')[0];
@@ -53,6 +66,6 @@ const useCreateRecord = () => {
       return;
     }
   };
-  return { onCreateRecord };
+  return { onCreateRecord, initNewRecord, resetNewRecord, isCreateRecord };
 };
 export default useCreateRecord;
