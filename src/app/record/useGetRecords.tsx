@@ -20,9 +20,9 @@ interface RecordData {
 }
 
 const useGetRecords = () => {
-  const { data, loading } = useQuery<RecordData>(GET_RECORDS_QUERY);
+  const { data, loading, error } = useQuery<RecordData>(GET_RECORDS_QUERY);
 
-  return { records: !loading ? data?.records : null, loading };
+  return { records: !loading ? data?.records : null, loading, error: error?.message ? error.message : null };
 };
 
 export default useGetRecords;
