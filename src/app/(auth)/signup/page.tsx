@@ -7,6 +7,7 @@ import { registerSchema } from '@/schema/registerSchema';
 import { ApolloError, useMutation } from '@apollo/client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -17,12 +18,15 @@ interface SignUpValues {
 }
 
 export default function Home() {
+  const { push } = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<SignUpValues>({ resolver: zodResolver(registerSchema) });
-  const [signup] = useMutation(SIGN_UP_MUTATION);
+  const [signup] = useMutation(SIGN_UP_MUTATION, {
+    onCompleted: () => push('/record'),
+  });
 
   const onSignIn = async ({ email, password }: SignUpValues) => {
     try {
