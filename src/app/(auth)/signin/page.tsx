@@ -7,6 +7,7 @@ import { loginSchema } from '@/schema/loginSchema';
 import { ApolloError, useMutation } from '@apollo/client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -16,12 +17,15 @@ interface LoginValues {
 }
 
 export default function Home() {
+  const { push } = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginValues>({ resolver: zodResolver(loginSchema) });
-  const [login] = useMutation(SIGN_IN_MUTATION);
+  const [login] = useMutation(SIGN_IN_MUTATION, {
+    onCompleted: () => push('/record'),
+  });
 
   const onSignIn = async ({ email, password }: LoginValues) => {
     try {
@@ -50,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex h-screen items-center justify-center bg-[#64748B] text-gray-100">
+    <main className="flex h-screen items-center justify-center bg-[#070B15] text-gray-100">
       <form
         className="flex max-w-lg flex-col items-center justify-center gap-2 rounded-lg bg-[#182138] p-8 shadow-md"
         onSubmit={handleSubmit(onSignIn)}

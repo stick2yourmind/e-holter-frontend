@@ -39,10 +39,9 @@ export default function RecordForm<Schema extends z.ZodTypeAny>({
   });
   return (
     <form
-      className="flex max-w-lg flex-col items-center justify-center gap-2 rounded-lg bg-[#182138] p-8 shadow-md"
+      className="flex max-w-lg flex-col items-center justify-center gap-2 rounded-lg bg-[#182138] shadow-md"
       onSubmit={handleSubmit(submitHandler)}
     >
-      <h1 className="text-xl">New record</h1>
       <label htmlFor="date" className="self-start">
         Date
       </label>
