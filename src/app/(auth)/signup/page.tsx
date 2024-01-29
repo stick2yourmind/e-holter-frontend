@@ -57,7 +57,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex h-screen items-center justify-center bg-[#64748B] text-gray-100">
+    <main className="flex h-screen items-center justify-center bg-[#070B15] text-gray-100">
       <form
         className="flex max-w-lg flex-col items-center justify-center gap-2 rounded-lg bg-[#182138] p-8 shadow-md"
         onSubmit={handleSubmit(onSignIn)}
