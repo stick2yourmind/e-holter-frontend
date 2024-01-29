@@ -1,7 +1,6 @@
 'use client';
 
-import { HiPlusCircle, HiXCircle } from 'react-icons/hi';
-import { IconContext } from 'react-icons';
+import { HiPlusCircle } from 'react-icons/hi';
 import dayjs from 'dayjs';
 import { createRecordSchema } from '@/schema/record/createRecordSchema';
 import Modal from '@/components/Dialog/Dialog';
@@ -10,7 +9,7 @@ import './timepicker.css';
 import RecordForm from '@/components/RecordForm/RecordForm';
 import useCreateRecord from './useCreateRecord';
 import useGetRecords from './useGetRecords';
-import Button from '@/components/ui/Button';
+import SkeletonRecordCard from '@/components/RecordCard/SkeletonRecordCard';
 
 const defaultValues = {
   date: dayjs().format('YYYY-MM-DD'),
@@ -49,15 +48,17 @@ export default function Records() {
           <span>CREATE RECORD</span>
         </button>
         <div className="grid grid-cols-4 gap-6">
-          {records?.map((record) => (
-            <RecordCard
-              key={record.id}
-              minPressure={record.minPressure}
-              maxPressure={record.maxPressure}
-              pulse={record.heartRate}
-              date={record.date}
-            />
-          ))}
+          {!loading
+            ? records?.map((record) => (
+                <RecordCard
+                  key={record.id}
+                  minPressure={record.minPressure}
+                  maxPressure={record.maxPressure}
+                  pulse={record.heartRate}
+                  date={record.date}
+                />
+              ))
+            : Array.from({ length: 10 }).map((_, i) => <SkeletonRecordCard key={i} />)}
         </div>
       </section>
     </main>
