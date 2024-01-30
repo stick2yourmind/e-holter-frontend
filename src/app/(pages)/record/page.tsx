@@ -27,7 +27,7 @@ export default function Records() {
   } = useCreateRecord();
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#070B15] text-gray-100">
+    <main className="flex min-h-screen max-w-sm items-center justify-center bg-[#070B15] text-gray-100 sm:max-w-xl xl:max-w-7xl">
       <Modal isOpen={isModal} onClose={closeModal} title="New record">
         <RecordForm
           initialValues={defaultValues}
@@ -38,7 +38,7 @@ export default function Records() {
           }}
         />
       </Modal>
-      <section className="flex flex-col gap-8">
+      <section className="flex w-full flex-col gap-8 ">
         <h2 className="text-2xl">Blood pressure measurement</h2>
         <button
           className="flex items-center justify-center gap-2 self-end rounded px-2 py-1 text-sm text-[color:#E3E7EE] outline outline-1 outline-[color:#475569]"
