@@ -14,10 +14,10 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       height: {
-        screen: ['100vh /* fallback for Opera, IE and etc. */', '100dvh'].join('; '),
+        screen: ['100vh /* fallback for Opera, IE and etc. */', '100dvh'],
       },
     },
   },
   plugins: [],
-};
+} as any; // to add support for fallback height
 export default config;
