@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={`${inter.className} relative flex min-h-screen items-center justify-center bg-[#070B15] text-gray-100`}
+        className={`${inter.className} relative flex min-h-screen items-center justify-center bg-[#070B15] text-gray-100 `}
       >
         <ApolloWrapper>{children}</ApolloWrapper>
         <Toast />
