@@ -19,7 +19,7 @@ export interface RecordCardProps {
 export default function RecordCard({ maxPressure, minPressure, pulse, date }: RecordCardProps) {
   return (
     <article
-      className={`${brunoAceSc.className} flex flex-col  rounded-md bg-[#182138] p-6 text-[color:#14b8a6] shadow-sm shadow-slate-800`}
+      className={`${brunoAceSc.className} flex max-w-64  flex-col rounded-md bg-[#182138] p-6 text-[color:#14b8a6] shadow-sm shadow-slate-800`}
     >
       <button className="self-end rounded px-2 py-1 text-sm text-[color:#E3E7EE] outline outline-1 outline-[color:#475569]">
         Details &gt;

@@ -47,7 +47,7 @@ export default function Records() {
           <HiPlusCircle />
           <span>CREATE RECORD</span>
         </button>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 justify-items-center gap-6  sm:grid-cols-2 xl:grid-cols-4">
           {!loading
             ? records?.map((record) => (
                 <RecordCard
